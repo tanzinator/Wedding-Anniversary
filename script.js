@@ -49,7 +49,7 @@ function customDecode(str, shift) {
 const eventDetails = {
   date: 'May 29, 2024',
   time: '7:30 PM',
-  location: 'Moms Recipes',
+  location: customDecode(encodedLocation, 3),
   anniversaryYear: '1st'
 };
 
