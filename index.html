@@ -17,7 +17,7 @@
             <p>Join us in celebrating our <span id="anniversaryYear"></span> wedding anniversary.</p>
           </div>
           <h2 class="text-center mb-4"></h2>
-		  <p class="text-center mb-4">Unlock the details of our 1st anniversary by answering a few special questions about us!</p>
+		  <p class="text-center mb-4">Unlock the details by answering a few special questions about us!</p>
           <p id="countdown" class="text-center mb-4"></p>
           
           <!--<div class="image-container mb-4">
@@ -37,7 +37,8 @@
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 2:</h4>
-              <p>What is the sum of the digits of the day and the month of our engagement?(Enter in letters)</p>
+              <p>Identify the place in the image:</p>
+			  <img src="img.jpg" alt="Question Image" class="question-image mb-3">
               <input type="text" id="question2" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're doing great!</p>
@@ -58,10 +59,18 @@
               </div>
             </div>
           </div>
-          <div class="details d-none">
-            <p><strong>Date:</strong> <span id="eventDate"></span></p>
-            <p><strong>Time:</strong> <span id="eventTime"></span></p>
-            <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+          <div id="venueAnimation" class="d-none">
+            <div class="envelope">
+              <div class="envelope-flap"></div>
+              <div class="envelope-content">
+                <div class="venue-details">
+                  <h3>Venue Details</h3>
+                  <p><strong>Date:</strong> <span id="eventDate"></span></p>
+                  <p><strong>Time:</strong> <span id="eventTime"></span></p>
+                  <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +85,7 @@
     const encodedAnswers = [
 		
       ['fkldqwl'],
-	  ['ilyh'],
+	  ['ydwlfdq', 'ydwlfdq flwb'],
 	  ['fxeerq', 'fxeerq sdun'],
 	  ];
 	  

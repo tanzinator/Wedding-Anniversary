@@ -7,6 +7,10 @@ const eventLocation = document.getElementById('eventLocation');
 const questionnaire = document.getElementById('questionnaire');
 const details = document.querySelector('.details');
 
+const buttonContainer = document.querySelector('.button-container');
+
+
+
 // Custom encoding function
 function customEncode(str, shift) {
   let encoded = '';
@@ -80,6 +84,9 @@ const x = setInterval(function() {
 
 // Questionnaire logic
 const questions = document.querySelectorAll('.question');
+const venueAnimation = document.getElementById('venueAnimation');
+const venueDetails = document.querySelector('.venue-details');
+const spinner = document.querySelector('.spinner');
 const answers = encodedAnswers.map(answerArray => answerArray.map(answer => customDecode(answer, 3)));
 
 questions.forEach((question, index) => {
@@ -95,7 +102,8 @@ questions.forEach((question, index) => {
       errorMessage.classList.add('d-none');
       setTimeout(() => {
         if (index === answers.length - 1) {
-          details.classList.remove('d-none');
+			venueAnimation.classList.remove('d-none');
+          //details.classList.remove('d-none');
         } else {
           questions[index + 1].classList.remove('d-none');
         }
