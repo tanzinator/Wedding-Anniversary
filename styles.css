@@ -1,0 +1,65 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #FFB6C1, #C0392B);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.question input {
+  text-transform: lowercase;
+}
+
+.success-message,
+.error-message {
+  margin-top: 10px;
+}
+
+.correct-input {
+  border-color: #28a745 !important;
+  animation: success-animation 0.3s ease;
+}
+
+@keyframes success-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes error-animation {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Anniversary Invitation</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="invitation-card">
+		<div class="text-center mb-4">
+            <h2>You're Invited!</h2>
+            <p>Join us in celebrating our <span id="anniversaryYear"></span> wedding anniversary.</p>
+          </div>
+          <h2 class="text-center mb-4"></h2>
+		  <p class="text-center mb-4">Unlock the details of our 1st anniversary by answering a few special questions about us!</p>
+          <p id="countdown" class="text-center mb-4"></p>
+          
+          <!--<div class="image-container mb-4">
+            <img src="anniversary-image.jpg" alt="Anniversary Image" class="img-fluid">
+          </div>-->
+          <div id="questionnaire">
+            <div class="question mb-4">
+              <h4>Question 1:</h4>
+              <p>What is the name of our favorite restaurant?</p>
+              <input type="text" id="question1" class="form-control" placeholder="Enter your answer">
+              <div class="success-message d-none">
+                <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Keep going!</p>
+              </div>
+			  <div class="error-message d-none">
+                <p class="text-danger"><i class="fas fa-times-circle"></i> Oops! Try again.</p>
+              </div>
+            </div>
+            <div class="question mb-4 d-none">
+              <h4>Question 2:</h4>
+              <p>What was the name of our first pet?</p>
+              <input type="text" id="question2" class="form-control" placeholder="Enter your answer">
+              <div class="success-message d-none">
+                <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're doing great!</p>
+              </div>
+            </div>
+            <div class="question mb-4 d-none">
+              <h4>Question 3:</h4>
+              <p>What was the color of my dress on our wedding day?</p>
+              <input type="text" id="question3" class="form-control" placeholder="Enter your answer">
+              <div class="success-message d-none">
+                <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're amazing!</p>
+              </div>
+            </div>
+          </div>
+          <div class="details d-none">
+            <p><strong>Date:</strong> <span id="eventDate"></span></p>
+            <p><strong>Time:</strong> <span id="eventTime"></span></p>
+            <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js"></script>
+   <script>
+    // Custom encoded answers
+    const encodedAnswers = [
+      ['wudwwruld', 'wudwwb', 'WUDWWRULH'],
+      ['exggb', 'exg'],
+      ['zklwh']
+    ];
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
