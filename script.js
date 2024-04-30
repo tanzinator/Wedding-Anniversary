@@ -11,6 +11,8 @@ const buttonContainer = document.querySelector('.button-container');
 
 
 
+
+
 // Custom encoding function
 function customEncode(str, shift) {
   let encoded = '';
@@ -64,7 +66,7 @@ eventTime.textContent = eventDetails.time;
 eventLocation.textContent = eventDetails.location;
 
 // Show the countdown
-const countDownDate = new Date(eventDetails.date).getTime();
+/*const countDownDate = new Date(eventDetails.date).getTime();
 const x = setInterval(function() {
   const now = new Date().getTime();
   const distance = countDownDate - now;
@@ -80,7 +82,36 @@ const x = setInterval(function() {
     clearInterval(x);
     countdownElement.innerHTML = 'Event has passed';
   }
+}, 1000);*/
+
+
+const countDownDate = new Date(eventDetails.date).getTime();
+const countdownWidget = document.getElementById('countdown-widget');
+const daysElement = document.getElementById('days');
+const hoursElement = document.getElementById('hours');
+const minutesElement = document.getElementById('minutes');
+const secondsElement = document.getElementById('seconds');
+
+const x = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  daysElement.textContent = days;
+  hoursElement.textContent = hours;
+  minutesElement.textContent = minutes;
+  secondsElement.textContent = seconds;
+
+  if (distance < 0) {
+    clearInterval(x);
+    countdownWidget.innerHTML = '<div class="countdown-item"><span>Event has passed</span></div>';
+  }
 }, 1000);
+
 
 // Questionnaire logic
 const questions = document.querySelectorAll('.question');

@@ -18,7 +18,25 @@
           </div>
           <h2 class="text-center mb-4"></h2>
 		  <p class="text-center mb-4">Unlock the details by answering a few special questions about us!</p>
-          <p id="countdown" class="text-center mb-4"></p>
+          <!--<p id="countdown" class="text-center mb-4"></p> -->
+		  <div id="countdown-widget" class="text-center mb-4">
+            <div class="countdown-item">
+              <span id="days"></span>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+              <span id="hours"></span>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+              <span id="minutes"></span>
+              <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+              <span id="seconds"></span>
+              <div class="countdown-label">Seconds</div>
+            </div>
+          </div>
           
           <!--<div class="image-container mb-4">
             <img src="anniversary-image.jpg" alt="Anniversary Image" class="img-fluid">
@@ -26,7 +44,7 @@
           <div id="questionnaire">
             <div class="question mb-4">
               <h4>Question 1:</h4>
-              <p>What is the name of the restaurant where we first met?</p>
+              <p>Where was Shivani first introduced to Raj's near and dear in person?</p>
               <input type="text" id="question1" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Keep going!</p>
@@ -37,8 +55,8 @@
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 2:</h4>
-              <p>Identify the place in the image:</p>
-			  <img src="img.jpg" alt="Question Image" class="question-image mb-3">
+              <p>On 22nd January 2023, we danced to a song. Who was the male singer of that song?</p>
+			  
               <input type="text" id="question2" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're doing great!</p>
@@ -49,7 +67,20 @@
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 3:</h4>
-              <p>What was the name of the place where we finally made the golden decision?</p>
+              <p>As part of our Europe tour, we visited 4 countries namely France, Italy, Vatican City and X. Identify X?</p>
+			  <img src="EU-collage.jpg" alt="Question Image" class="question-image mb-3">
+              <input type="text" id="question3" class="form-control" placeholder="Enter your answer">
+              <div class="success-message d-none">
+                <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Just one more to go!</p>
+              </div>
+			  <div class="error-message d-none">
+                <p class="text-danger"><i class="fas fa-times-circle"></i> Oops! Try again.</p>
+              </div>
+            </div>
+			 <div class="question mb-4 d-none">
+              <h4>Question 4:</h4>
+              <p>What is the name of the famous park in Bangalore where we took our first picture together, which has since become synonymous with many memorable events, some of which were quite amusing?</p>
+			  <img src="First-Pic.jpg" alt="Question Image1" class="question-image mb-3">
               <input type="text" id="question3" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're amazing!</p>
@@ -84,9 +115,10 @@
     // Custom encoded answers
     const encodedAnswers = [
 		
-      ['fkldqwl'],
-	  ['ydwlfdq', 'ydwlfdq flwb'],
-	  ['fxeerq', 'fxeerq sdun'],
+      ['eduehtxh', 'eduehfxh', 'eduehtxhqdwlrq'],
+	  ['vrqx', 'qljdp'],
+	  ['vzlwchuodqg', 'jhqhyd', 'vzlvv'],
+	  ['fxeerq']
 	  ];
 	  
 	  
