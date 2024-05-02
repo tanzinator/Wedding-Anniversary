@@ -7,7 +7,7 @@ const eventLocation = document.getElementById('eventLocation');
 const questionnaire = document.getElementById('questionnaire');
 const details = document.querySelector('.details');
 
-const buttonContainer = document.querySelector('.button-container');
+
 
 
 
@@ -113,12 +113,79 @@ const x = setInterval(function() {
 }, 1000);
 
 
+function setUserCookie(cookieName, cookieValue, expirationDays) {
+  var expires = '';
+  if (expirationDays) {
+    var date = new Date();
+    date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    expires = '; expires=' + date.toUTCString();
+  }
+  document.cookie = cookieName + '=' + cookieValue + expires + '; path=/';
+}
+
+// Get user cookie
+function getUserCookie(cookieName) {
+  var name = cookieName + '=';
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var cookieArray = decodedCookie.split(';');
+  for (var i = 0; i < cookieArray.length; i++) {
+    var cookie = cookieArray[i];
+    while (cookie.charAt(0) === ' ') {
+      cookie = cookie.substring(1);
+    }
+    if (cookie.indexOf(name) === 0) {
+      return cookie.substring(name.length, cookie.length);
+    }
+  }
+  return '';
+}
+
+function generateUserCookie() {
+  var existingCookie = getUserCookie('userCookie');
+  if (existingCookie) {
+    return existingCookie;
+  } else {
+    var newCookie = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(7);
+    setUserCookie('userCookie', newCookie, 365);
+    return newCookie;
+  }
+}
+
+var userCookie = generateUserCookie();
+
+function sendToGoogleSheet(responses) {
+  var formData = new FormData();
+  formData.append('UserCookie', userCookie);
+  
+  responses.forEach(function(response, index) {
+    formData.append('Question' + (index + 1), response);
+  });
+
+  fetch('https://script.google.com/macros/s/AKfycby-r86oUPPLkDUWoGhVhn-W1yvgTodU3oKpYMPv4inELj4v7mpDYaHNuY1qXEfqybq5/exec', {
+    method: 'POST',
+    body: formData
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(function(error) {
+    console.error('Error:', error);
+  });
+}
+
+
+
 // Questionnaire logic
 const questions = document.querySelectorAll('.question');
 const venueAnimation = document.getElementById('venueAnimation');
 const venueDetails = document.querySelector('.venue-details');
 const spinner = document.querySelector('.spinner');
 const answers = encodedAnswers.map(answerArray => answerArray.map(answer => customDecode(answer, 3)));
+
+var correctResponses = [];
 
 questions.forEach((question, index) => {
   const input = question.querySelector('input');
@@ -131,9 +198,13 @@ questions.forEach((question, index) => {
       input.classList.add('correct-input');
       successMessage.classList.remove('d-none');
       errorMessage.classList.add('d-none');
+	  correctResponses[index] = input.value;
       setTimeout(() => {
         if (index === answers.length - 1) {
 			venueAnimation.classList.remove('d-none');
+			          setTimeout(() => {
+            sendToGoogleSheet(correctResponses); // Send correct responses to Google Sheet
+          }, 3000);
           //details.classList.remove('d-none');
         } else {
           questions[index + 1].classList.remove('d-none');
