@@ -227,6 +227,8 @@ questions.forEach((question, index) => {
         } else {
           questions[index + 1].classList.remove('d-none');
         }
+		 document.activeElement.blur();
+		window.scrollTo(0, 0);
       }, 1000);
     }, 500);
 	}
