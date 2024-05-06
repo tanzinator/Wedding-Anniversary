@@ -213,6 +213,11 @@ questions.forEach((question, index) => {
                         questions[index + 1].classList.remove('d-none');
 						
 						questions[index + 1].querySelector('input').focus(); // Focus on the next input box
+
+						//scroll to the top
+						const nextQuestion = questions[index + 1];
+						const questionTop = nextQuestion.getBoundingClientRect().top + window.pageYOffset;
+						window.scrollTo({ top: questionTop, behavior: 'smooth' });
                     }
 
                 }, 1000);
