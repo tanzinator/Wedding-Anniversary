@@ -48,7 +48,7 @@ function customDecode(str, shift) {
 // Set the event details
 const eventDetails = {
     date: 'May 29, 2024',
-    time: '7:30 PM',
+    time: '8:00 PM Onwards',
     location: customDecode(encodedLocation, 3),
     anniversaryYear: '1st'
 };
@@ -219,7 +219,7 @@ questions.forEach((question, index) => {
 						
 						// Redirect to the homepage after 5 seconds
 						setTimeout(() => {
-						    window.location.href = '/'; // Replace '/' with the URL of your homepage
+						    window.location.href = 'https://tanzinator.github.io/Wedding-Anniversary/'; // Replace '/' with the URL of your homepage
 						}, 8000);
                         //details.classList.remove('d-none');
                     } else {
