@@ -154,6 +154,7 @@ function generateUserCookie() {
 var userCookie = generateUserCookie();
 
 function sendToGoogleSheet(responses) {
+  var userId = document.getElementById('userId').value;
   var formData = new FormData();
   formData.append('UserCookie', userCookie);
   
@@ -161,7 +162,7 @@ function sendToGoogleSheet(responses) {
     formData.append('Question' + (index + 1), response);
   });
 
-  fetch('https://script.google.com/macros/s/AKfycby-r86oUPPLkDUWoGhVhn-W1yvgTodU3oKpYMPv4inELj4v7mpDYaHNuY1qXEfqybq5/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzgTVZljGIsysAC7My_4P_hpqYQkClcVEBuQSJZsOZJIv2uiYR97PfbinPFWOFohj8/exec', {
     method: 'POST',
     body: formData
   })
@@ -176,6 +177,19 @@ function sendToGoogleSheet(responses) {
   });
 }
 
+function addConfettiAnimation() {
+  const confettiContainer = document.getElementById('confetti-container');
+  const colors = ['#f0932b', '#eb4d4b', '#6ab04c', '#7ed6df', '#e056fd'];
+
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = `${Math.random() * 100}%`;
+    confetti.style.animationDelay = `${Math.random() * 3}s`;
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confettiContainer.appendChild(confetti);
+  }
+}
 
 
 // Questionnaire logic
@@ -196,12 +210,16 @@ questions.forEach((question, index) => {
     const userAnswer = input.value.toLowerCase().trim();
     if (answers[index].includes(userAnswer)) {
       input.classList.add('correct-input');
-      successMessage.classList.remove('d-none');
+     
       errorMessage.classList.add('d-none');
 	  correctResponses[index] = input.value;
       setTimeout(() => {
+		  
+		 successMessage.classList.remove('d-none');  
+		setTimeout(() => {  
         if (index === answers.length - 1) {
 			venueAnimation.classList.remove('d-none');
+			addConfettiAnimation();
 			          setTimeout(() => {
             sendToGoogleSheet(correctResponses); // Send correct responses to Google Sheet
           }, 3000);
@@ -210,7 +228,8 @@ questions.forEach((question, index) => {
           questions[index + 1].classList.remove('d-none');
         }
       }, 1000);
-    } 
+    }, 500);
+	}
 	/*else if(input.value.length > 10) {
 		input.classList.remove('correct-input');
       successMessage.classList.add('d-none');
