@@ -208,11 +208,31 @@ body {
   }
 }
 
+.question-image-container {
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px; /* Adjust the negative margin as needed */
+  position: relative;
+  z-index: 1;
+}
+
 .question-image {
-  max-width: 100%; /* Adjust the width as needed */
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.form-control {
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .question-image {
+    max-height: 320px; /* Adjust the max-height value for PC */
+	margin: 0 auto;
+  }
 }
 
 #countdown-widget {

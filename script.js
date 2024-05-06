@@ -211,6 +211,8 @@ questions.forEach((question, index) => {
 						
 						//show next question
                         questions[index + 1].classList.remove('d-none');
+						
+						questions[index + 1].querySelector('input').focus(); // Focus on the next input box
                     }
 
                 }, 1000);
