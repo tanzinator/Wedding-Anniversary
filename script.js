@@ -216,8 +216,7 @@ questions.forEach((question, index) => {
 
 						//scroll to the top
 						const nextQuestion = questions[index + 1];
-						const questionTop = nextQuestion.getBoundingClientRect().top + window.pageYOffset;
-						window.scrollTo({ top: questionTop, behavior: 'smooth' });
+						nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
 
                 }, 1000);
