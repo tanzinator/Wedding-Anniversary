@@ -37,6 +37,16 @@ body {
   animation: success-animation 0.3s ease;
 }
 
+.question-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
 @keyframes success-animation {
   0% {
     transform: scale(1);
@@ -153,7 +163,7 @@ body {
 }
 
 .question-image {
-  max-width: 400px; /* Adjust the width as needed */
+  max-width: 100%; /* Adjust the width as needed */
   height: auto;
   display: block;
   margin: 0 auto;
