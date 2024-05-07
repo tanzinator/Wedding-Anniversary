@@ -7,6 +7,8 @@ const eventLocation = document.getElementById('eventLocation');
 const questionnaire = document.getElementById('questionnaire');
 const details = document.querySelector('.details');
 
+var userpasskey = '';
+
 // Custom encoding function
 function customEncode(str, shift) {
     let encoded = '';
@@ -44,6 +46,33 @@ function customDecode(str, shift) {
     }
     return decoded;
 }
+
+
+// Define the passkey-specific questions
+const passkeyQuestions = {
+    '3105': 'Where was Shivani first introduced to Raj\'s near and dear in person?',
+    '2201': 'Where in Bangalore was Tanay first introduced to Mamma/Pappa in person?'
+};
+
+const passkey = document.getElementById('passkey');
+const submitPasskey = document.getElementById('submit-passkey');
+const passkeyContainer = document.getElementById('passkey-container');
+const question1Text = document.getElementById('question1Text');
+
+submitPasskey.addEventListener('click', () => {
+    const enteredPasskey = passkey.value.toLowerCase().trim();
+    const question = passkeyQuestions[enteredPasskey];
+
+    if (question) {
+        userpasskey = enteredPasskey;
+        passkeyContainer.classList.add('d-none');
+        questionnaire.classList.remove('d-none');
+        question1Text.textContent = question;
+    }
+    else {
+        alert('Please enter a valid passkey.');
+    }
+});
 
 // Set the event details
 const eventDetails = {
@@ -126,7 +155,7 @@ function generateUserCookie() {
     }
 }
 
-var userCookie = generateUserCookie();
+var userCookie = userpasskey;
 
 function sendToGoogleSheet(responses) {
     var userId = document.getElementById('userId').value;
@@ -141,15 +170,15 @@ function sendToGoogleSheet(responses) {
         method: 'POST',
         body: formData
     })
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (error) {
-        console.error('Error:', error);
-    });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
 }
 
 function addConfettiAnimation() {
@@ -199,24 +228,24 @@ questions.forEach((question, index) => {
                         }, 3000);
                         document.activeElement.blur();
                         window.scrollTo(0, 0);
-						
-						// Redirect to the homepage after 5 seconds
-						setTimeout(() => {
-						    window.location.href = 'https://tanzinator.github.io/Wedding-Anniversary/'; // Replace '/' with the URL of your homepage
-						}, 8000);
+
+                        // Redirect to the homepage after 5 seconds
+                        setTimeout(() => {
+                            window.location.href = 'https://tanzinator.github.io/Wedding-Anniversary/'; // Replace '/' with the URL of your homepage
+                        }, 8000);
                         //details.classList.remove('d-none');
                     } else {
-						// Hide the current question
+                        // Hide the current question
                         question.classList.add('d-none');
-						
-						//show next question
-                        questions[index + 1].classList.remove('d-none');
-						
-						questions[index + 1].querySelector('input').focus(); // Focus on the next input box
 
-						//scroll to the top
-						const nextQuestion = questions[index + 1];
-						nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        //show next question
+                        questions[index + 1].classList.remove('d-none');
+
+                        questions[index + 1].querySelector('input').focus(); // Focus on the next input box
+
+                        //scroll to the top
+                        const nextQuestion = questions[index + 1];
+                        nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
 
                 }, 1000);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="invitation-card">
-		<div class="text-center mb-4">
+          <div class="text-center mb-4">
             <h2>You're Invited!</h2>
             <p>Join us in celebrating our <span id="anniversaryYear"></span> wedding anniversary.</p>
           </div>
           <h2 class="text-center mb-4"></h2>
-		  <p class="text-center mb-4">Unlock the details by answering a few special questions about us!</p>
+          <p class="text-center mb-4">Unlock the details by answering a few special questions about us!</p>
           <!--<p id="countdown" class="text-center mb-4"></p> -->
-		  <div id="countdown-widget" class="text-center mb-4">
+          <div id="countdown-widget" class="text-center mb-4">
             <div class="countdown-item">
               <span id="days"></span>
               <div class="countdown-label">Days</div>
@@ -37,62 +39,70 @@
               <div class="countdown-label">Seconds</div>
             </div>
           </div>
-          
+
           <!--<div class="image-container mb-4">
             <img src="anniversary-image.jpg" alt="Anniversary Image" class="img-fluid">
           </div>-->
-          <div id="questionnaire">
+          <div id="passkey-container" class="text-center mb-4">
+            <h3>Enter your passkey:</h3>
+            <input type="text" id="passkey" class="form-control" placeholder="Enter passkey">
+            <button id="submit-passkey" class="btn btn-primary mt-3">Submit</button>
+          </div>
+          <div id="questionnaire" class="d-none">
             <div class="question mb-4">
               <h4>Question 1:</h4>
-              <p>Where was Shivani first introduced to Raj's near and dear in person?</p>
+              <p id="question1Text"></p>
+              <!--<p>Where was Shivani first introduced to Raj's near and dear in person?</p>-->
               <input type="text" id="question1" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Keep going!</p>
               </div>
-			  <div class="error-message d-none">
+              <div class="error-message d-none">
                 <p class="text-danger"><i class="fas fa-times-circle"></i> Oops! Try again.</p>
               </div>
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 2:</h4>
               <p>On 22nd January 2023, we danced to a song. Who was the male singer of that song?</p>
-			  
+
               <input type="text" id="question2" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're doing great!</p>
               </div>
-			  <div class="error-message d-none">
+              <div class="error-message d-none">
                 <p class="text-danger"><i class="fas fa-times-circle"></i> Oops! Try again.</p>
               </div>
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 3:</h4>
-              <p>As part of our Europe tour, we visited 4 countries namely France, Italy, Vatican City and X. Identify X?</p>
-			  <img src="EU-collage.jpg" alt="Question Image" class="question-image mb-3">
+              <p>As part of our Europe tour, we visited 4 countries namely France, Italy, Vatican City and X. Identify
+                X?</p>
+              <img src="EU-collage.jpg" alt="Question Image" class="question-image mb-3">
               <input type="text" id="question3" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Just one more to go!</p>
               </div>
-			  <div class="error-message d-none">
+              <div class="error-message d-none">
                 <p class="text-danger"><i class="fas fa-times-circle"></i> Oops! Try again.</p>
               </div>
             </div>
-			 <div class="question mb-4 d-none">
+            <div class="question mb-4 d-none">
               <h4>Question 4:</h4>
-              <p>What is the name of the famous park in Bangalore where we took our first picture together, which has since become synonymous with many memorable events, some of which were quite amusing?</p>
-			  <div class="question-image-container">
-				<img src="First-Pic.jpg" alt="Question Image1" class="question-image">
-			  </div>
+              <p>What is the name of the famous park in Bangalore where we took our first picture together, which has
+                since become synonymous with many memorable events, some of which were quite amusing?</p>
+              <div class="question-image-container">
+                <img src="First-Pic.jpg" alt="Question Image1" class="question-image">
+              </div>
               <input type="text" id="question4" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're amazing!</p>
               </div>
-			  <div class="error-message d-none">
+              <div class="error-message d-none">
                 <p class="text-danger"><i class="fas fa-times-circle"></i> Oops! Try again.</p>
               </div>
             </div>
-			
-			
+
+
           </div>
           <div id="venueAnimation" class="d-none">
             <div class="envelope">
@@ -106,43 +116,44 @@
                 </div>
               </div>
             </div>
-			<div class="crackers">
-				<div class="cracker cracker-left"></div>
-				<div class="cracker cracker-right"></div>
-			</div>
+            <div class="crackers">
+              <div class="cracker cracker-left"></div>
+              <div class="cracker cracker-right"></div>
+            </div>
           </div>
-		  <div id="confetti-container"></div>
-		  <div id="loading-spinner" class="d-none">
-			<div class="spinner-border text-primary" role="status">
-			<span class="sr-only">Loading...</span>
-			</div>
-		</div>
+          <div id="confetti-container"></div>
+          <div id="loading-spinner" class="d-none">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  
+
   <input type="hidden" id="userId" value="">
-  
-  
+
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/yourfontawesomekit.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll-polyfill/0.4.4/smoothscroll.min.js"></script>
-   <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll-polyfill/0.4.4/smoothscroll.min.js"></script>
+  <script>
     // Custom encoded answers
     const encodedAnswers = [
-		
-      ['eduehtxh', 'eduehfxh', 'eduehtxhqdwlrq'],
-	  ['vrqx', 'qljdp'],
-	  ['vzlwchuodqg', 'jhqhyd', 'vzlvv'],
-	  ['fxeerq']
-	  ];
-	  
-	  
-	const encodedLocation = 'Vrxo Fxuub';
+
+      ['eduehtxh', 'eduehfxh', 'eduehtxhqdwlrq', 'krwho lulv', 'Lulv', 'lulv'],
+      ['vrqx', 'qljdp'],
+      ['vzlwchuodqg', 'jhqhyd', 'vzlvv'],
+      ['fxeerq']
+    ];
+
+
+    const encodedLocation = 'Vrxo Fxuub';
   </script>
   <script src="script.js"></script>
 </body>
+
 </html>
