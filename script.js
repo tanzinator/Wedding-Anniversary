@@ -231,7 +231,7 @@ questions.forEach((question, index) => {
                         }, 3000);
                         document.activeElement.blur();
                         window.scrollTo(0, 0);
-
+                        
                         // Redirect to the homepage after 5 seconds
                         setTimeout(() => {
                             window.location.href = 'https://tanzinator.github.io/Wedding-Anniversary/'; // Replace '/' with the URL of your homepage
@@ -247,8 +247,10 @@ questions.forEach((question, index) => {
                         questions[index + 1].querySelector('input').focus(); // Focus on the next input box
 
                         //scroll to the top
+                        setTimeout(() => {
                         const nextQuestion = questions[index + 1];
                         nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 500);
                     }
 
                 }, 1000);
