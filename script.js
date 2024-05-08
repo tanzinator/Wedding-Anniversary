@@ -51,7 +51,9 @@ function customDecode(str, shift) {
 // Define the passkey-specific questions
 const passkeyQuestions = {
     '3105': 'Where was Shivani first introduced to Raj\'s near and dear in person?',
-    '2201': 'Where in Bangalore was Tanay first introduced to Mamma/Pappa in person?'
+    '2201': 'Where in Bangalore was Tanay first introduced to Mamma/Pappa in person?',
+    '6174': 'Name the pub in Bangalore where the Desai\'s first met Shivani and Tanay in person?',
+    '6154': 'Name the restaurant where Shivani was first introduced to Sabnis fly in person?'
 };
 
 const passkey = document.getElementById('passkey');
@@ -155,12 +157,12 @@ function generateUserCookie() {
     }
 }
 
-var userCookie = userpasskey;
+var userCookie = generateUserCookie();
 
-function sendToGoogleSheet(responses) {
-    var userId = document.getElementById('userId').value;
+function sendToGoogleSheet(responses, enteredPasskey) {
     var formData = new FormData();
     formData.append('UserCookie', userCookie);
+    formData.append('Passkey', enteredPasskey);
 
     responses.forEach(function (response, index) {
         formData.append('Question' + (index + 1), response);
@@ -224,7 +226,8 @@ questions.forEach((question, index) => {
                         venueAnimation.classList.remove('d-none');
                         addConfettiAnimation();
                         setTimeout(() => {
-                            sendToGoogleSheet(correctResponses); // Send correct responses to Google Sheet
+                            const enteredPasskey = passkey.value.trim();
+                            sendToGoogleSheet(correctResponses, enteredPasskey); // Send correct responses to Google Sheet
                         }, 3000);
                         document.activeElement.blur();
                         window.scrollTo(0, 0);
