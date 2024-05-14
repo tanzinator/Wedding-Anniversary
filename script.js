@@ -221,6 +221,10 @@ questions.forEach((question, index) => {
             setTimeout(() => {
 
                 successMessage.classList.remove('d-none');
+
+                // Remove focus from the input field to hide the keyboard
+                input.blur();
+                
                 setTimeout(() => {
                     if (index === answers.length - 1) {
                         venueAnimation.classList.remove('d-none');
