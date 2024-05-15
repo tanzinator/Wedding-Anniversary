@@ -56,8 +56,8 @@ const hints = [
       "The country is famous for its chocolate and watches."
     ],
     [
-      "The park islocated in the heart of Bangalore in the Central Administrative Area",
-      "The park's name includes the last name of a British commissioner who served in India. His first name is Mark.",
+      "The park is located in the heart of Bangalore in the Central Administrative Area",
+      "The park is named after the last name of a British commissioner who served in India. His first name is Mark.",
     ]
 ];
 
