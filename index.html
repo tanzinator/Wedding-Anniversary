@@ -40,9 +40,6 @@
             </div>
           </div>
 
-          <!--<div class="image-container mb-4">
-            <img src="anniversary-image.jpg" alt="Anniversary Image" class="img-fluid">
-          </div>-->
           <div id="passkey-container" class="text-center mb-4">
             <h3>Enter your passkey:</h3>
             <input type="text" id="passkey" class="form-control" placeholder="Enter passkey">
@@ -52,7 +49,6 @@
             <div class="question mb-4">
               <h4>Question 1:</h4>
               <p id="question1Text"></p>
-              <!--<p>Where was Shivani first introduced to Raj's near and dear in person?</p>-->
               <input type="text" id="question1" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Keep going!</p>
@@ -63,7 +59,7 @@
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 2:</h4>
-              <p>On 22nd January 2023, we danced to a song. Who is the male singer of that song?</p>
+              <p>At our pachpartavan/vel-jevan function, we sang a song from a Bollywood movie. Who played the lead actor in that film?</p>
 
               <input type="text" id="question2" class="form-control" placeholder="Enter your answer">
               <div class="success-message d-none">
@@ -75,10 +71,12 @@
             </div>
             <div class="question mb-4 d-none">
               <h4>Question 3:</h4>
-              <p>As part of our Europe tour, we visited 4 countries namely France, Italy, Vatican City and X. Identify
+              <p>As part of our Europe tour, we visited 4 countries namely France, Italy, Vatican City and X. Name
                 X?</p>
               <img src="EU-collage.jpg" alt="Question Image" class="question-image mb-3">
               <input type="text" id="question3" class="form-control" placeholder="Enter your answer">
+              <button class="btn btn-info mt-2" onclick="toggleHint(3)">Show Hint</button>
+              <div id="hint3" class="hint mt-2 d-none"></div>
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! Just one more to go!</p>
               </div>
@@ -94,6 +92,8 @@
                 <img src="First-Pic.jpg" alt="Question Image1" class="question-image">
               </div>
               <input type="text" id="question4" class="form-control" placeholder="Enter your answer">
+              <button class="btn btn-info mt-2" onclick="toggleHint(4)">Show Hint</button>
+              <div id="hint4" class="hint mt-2 d-none"></div>
               <div class="success-message d-none">
                 <p class="text-success"><i class="fas fa-check-circle"></i> Correct! You're amazing!</p>
               </div>
@@ -144,8 +144,8 @@
     // Custom encoded answers
     const encodedAnswers = [
 
-      ['eduehtxhqdwlrq', 'eduehtxh qdwlrq', 'krwho lulv', 'Lulv', 'lulv', 'fkxufkvwuhhw', 'vrfldo'],
-      ['vrqx', 'qljdp'],
+      ['eduehtxhqdwlrq', 'eduehtxh qdwlrq', 'krwho lulv', 'Lulv', 'lulv', 'fkxufkvwuhhw', 'vrfldo', 'eet qdwlrq'],
+      ['ulvkl'],
       ['vzlwchuodqg', 'jhqhyd', 'vzlvv'],
       ['fxeerq']
     ];

@@ -47,10 +47,35 @@ function customDecode(str, shift) {
     return decoded;
 }
 
+// Array of hints for each question
+const hints = [
+    [],
+    [],
+    [
+      "Hint is in the picture",
+      "The country is famous for its chocolate and watches."
+    ],
+    [
+      "The park islocated in the heart of Bangalore in the Central Administrative Area",
+      "The park's name includes the last name of a British commissioner who served in India. His first name is Mark.",
+    ]
+];
+
+// Function to toggle the visibility of hints
+function toggleHint(questionIndex) {
+    const hintElement = document.getElementById(`hint${questionIndex}`);
+    if (hintElement.classList.contains('d-none')) {
+      hintElement.innerHTML = hints[questionIndex - 1].join('<br>');
+      hintElement.classList.remove('d-none');
+    } else {
+      hintElement.classList.add('d-none');
+    }
+  }
+
 
 // Define the passkey-specific questions
 const passkeyQuestions = {
-    '3105': 'Where was Shivani first introduced to Raj\'s near and dear in person?',
+    '3105': 'Where was Shivani first introduced to Sirvoicar family in person?',
     '2201': 'Where in Bangalore was Tanay first introduced to Mamma/Pappa in person?',
     '6174': 'Name the pub in Bangalore where the Desai\'s first met Shivani and Tanay in person?',
     '6154': 'Name the restaurant where Shivani was first introduced to Sabnis fly in person?'
