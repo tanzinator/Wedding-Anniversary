@@ -50,7 +50,8 @@ function customDecode(str, shift) {
 // Array of hints for each question
 const hints = [
     [],
-    [],
+    ["1) The actor and actress in the movie are a couple in real life.",
+     "2) \"You and me\""],
     [
       "Hint is in the picture",
       "The country is famous for its chocolate and watches."
@@ -100,6 +101,20 @@ submitPasskey.addEventListener('click', () => {
         alert('Please enter a valid passkey.');
     }
 });
+
+// Function to parse the query parameters from the URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+  // Get the passkey from the URL query parameter
+const urlPasskey = getQueryParam('passkey');
+
+if (urlPasskey) {
+    passkey.value = urlPasskey;
+    submitPasskey.click();
+}
 
 // Set the event details
 const eventDetails = {
