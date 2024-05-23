@@ -51,7 +51,7 @@ function customDecode(str, shift) {
 const hints = [
     [],
     ["1) The actor and actress in the movie are a couple in real life.",
-     "2) Khel Khel Mein"],
+     "2) \"You and me\""],
     [
       "Hint is in the picture",
       "The country is famous for its chocolate and watches."
