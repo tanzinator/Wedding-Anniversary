@@ -76,9 +76,9 @@ function toggleHint(questionIndex) {
 
 // Define the passkey-specific questions
 const passkeyQuestions = {
-    '3105': 'Where was Shivani first introduced to Sirvoicar family in person?',
-    '2201': 'Where in Bangalore was Tanay first introduced to Mamma/Pappa in person?',
-    '6174': 'Name the pub in Bangalore where the Desai\'s first met Shivani and Tanay in person?',
+    '3105': 'Name the restaurant where Shivani was first introduced to Sirvoicar family in person?',
+    '2201': 'Name the hotel in Bangalore where Tanay was first introduced to Mamma/Pappa and Chitra Maushi in person?',
+    '6174': 'Name the pub in Bangalore where the Desais first met Shivani and Tanay in person?',
     '6154': 'Name the restaurant where Shivani was first introduced to Sabnis fly in person?'
 };
 
@@ -278,7 +278,7 @@ questions.forEach((question, index) => {
                         
                         // Redirect to the homepage after 5 seconds
                         setTimeout(() => {
-                            window.location.href = 'https://tanzinator.github.io/Wedding-Anniversary/'; // Replace '/' with the URL of your homepage
+                            window.location.href = 'https://tanzinator.github.io/Wedding-Anniversary?passkey=' + passkey.value.toLowerCase().trim(); // Replace '/' with the URL of your homepage
                         }, 8000);
                         //details.classList.remove('d-none');
                     } else {
